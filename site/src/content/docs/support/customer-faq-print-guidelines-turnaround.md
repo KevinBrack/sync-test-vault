@@ -20,8 +20,10 @@ description: "Shop knowledge base document"
 | **Specialty (Discharge, Foil, Puff)** | **10 – 12 Business Days** | No | N/A |
 | **Samples / Strike-Offs** | **3 – 5 Business Days** | N/A | $50 / screen fee |
 
-> [!NOTE]
-> Turnaround time begins *after* final mockup art approval and payment confirmation, NOT when the initial order was submitted.
+:::note
+Turnaround time begins *after* final mockup art approval and payment confirmation, NOT when the initial order was submitted.
+:::
+
 
 ---
 

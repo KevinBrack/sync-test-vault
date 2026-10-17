@@ -55,8 +55,10 @@ $$\text{New Exposure Time} = \text{Current Time} \times 2^{\frac{7 - N}{2}}$$
 If current time is **12 seconds** and you only held a **Solid Step 5**:
 $$\text{New Time} = 12 \times 2^{\frac{7 - 5}{2}} = 12 \times 2^1 = 24\text{ seconds}$$
 
-> [!TIP]
-> Perform a 21-step wedge test every 90 days or whenever cracking open a new emulsion manufacturer batch.
+:::tip
+Perform a 21-step wedge test every 90 days or whenever cracking open a new emulsion manufacturer batch.
+:::
+
 
 ---
 

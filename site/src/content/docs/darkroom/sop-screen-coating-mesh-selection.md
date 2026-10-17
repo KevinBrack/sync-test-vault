@@ -43,8 +43,10 @@ We use **Chroma/Tek Dual-Cure Photopolymer Emulsion**.
    - Target cabinet conditions: **85°F – 95°F (29°C – 35°C)** with relative humidity **under 40%**.
    - Minimum dry time: **45 minutes** before exposure.
 
-> [!WARNING]
-> Never expose damp screens! Moisture inside the emulsion layer causes pinholes and premature stencil breakdown on long automatic runs.
+:::caution
+Never expose damp screens! Moisture inside the emulsion layer causes pinholes and premature stencil breakdown on long automatic runs.
+:::
+
 
 ---
 

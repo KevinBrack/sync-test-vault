@@ -39,8 +39,10 @@ Discharge ink chemically bleaches the reactive dye out of 100% cotton garments a
 - **Color Pigment Concentrate:** **100 g** (10%)
 - **Zinc Formaldehyde Sulfoxylate (ZFS) Activator:** **50 g** (5.0% by weight)
 
-> [!CAUTION]
-> Once the ZFS activator is mixed into the discharge base, pot life is **6 to 8 hours max**. Only mix what you will print in the current shift!
+:::caution
+Once the ZFS activator is mixed into the discharge base, pot life is **6 to 8 hours max**. Only mix what you will print in the current shift!
+:::
+
 
 ### Dryer Curing Specs for Discharge:
 - Conveyor chamber temperature: **340°F (171°C)**

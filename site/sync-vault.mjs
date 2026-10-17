@@ -17,6 +17,42 @@ function slugify(str) {
     .replace(/[-\s]+/g, '-');
 }
 
+function convertCallouts(markdown) {
+  const typeMap = {
+    note: 'note',
+    tip: 'tip',
+    warning: 'caution',
+    caution: 'caution',
+    danger: 'danger',
+    important: 'caution',
+    info: 'note',
+    todo: 'note',
+  };
+
+  // Match GitHub / Obsidian blockquote callouts:
+  // > [!TYPE] optional title
+  // > body line 1
+  // > body line 2
+  const calloutRegex = /^>[ \t]*\[!([a-zA-Z]+)\][ \t]*(.*(?:\r?\n|$))(?:(?:>[ \t]*.*(?:\r?\n|$))*)/gm;
+
+  return markdown.replace(calloutRegex, (match, type, titleLine) => {
+    const rawType = type.toLowerCase();
+    const asideType = typeMap[rawType] || 'note';
+    const trimmedTitle = titleLine.trim();
+    const titleAttr = trimmedTitle ? `[${trimmedTitle}]` : '';
+
+    const lines = match.split(/\r?\n/);
+    lines.shift(); // remove first line (> [!TYPE])
+    const cleanedLines = lines.map(line => line.replace(/^>[ \t]?/, ''));
+
+    while (cleanedLines.length > 0 && cleanedLines[cleanedLines.length - 1].trim() === '') {
+      cleanedLines.pop();
+    }
+
+    return `:::${asideType}${titleAttr}\n${cleanedLines.join('\n')}\n:::\n\n`;
+  });
+}
+
 function processMarkdown(content, filename) {
   let title = path.basename(filename, '.md');
   let description = 'Shop knowledge base document';
@@ -32,20 +68,21 @@ function processMarkdown(content, filename) {
   let body = content;
 
   if (!hasFrontmatter) {
-    // Add frontmatter
     const frontmatter = `---\ntitle: "${title.replace(/"/g, '\\"')}"\ndescription: "${description}"\n---\n\n`;
     body = frontmatter + body;
   }
 
-  // Convert Obsidian wikilinks: [[Target/Note|Display]] or [[Target/Note]]
+  // 1. Convert Obsidian wikilinks: [[Target/Note|Display]] or [[Target/Note]]
   body = body.replace(/\[\[([^\]|]+)(?:\|([^\]]+))?\]\]/g, (match, target, display) => {
     const text = display || target.split('/').pop();
-    // Normalize target path
     const targetClean = target.replace(/\.md$/, '');
     const parts = targetClean.split('/').map(slugify);
     const linkPath = '/' + parts.join('/');
     return `[${text}](${linkPath})`;
   });
+
+  // 2. Convert GitHub & Obsidian callouts to Starlight asides
+  body = convertCallouts(body);
 
   return body;
 }
@@ -86,7 +123,6 @@ function syncDirectory(srcDir, destDir) {
 }
 
 console.log('🔄 Syncing Obsidian vault markdown notes to Astro Starlight...');
-// Clear sample and previously synced directories to avoid stale slugs
 const cleanTargets = ['guides', 'reference', 'darkroom', 'equipment', 'press-room', 'support'];
 for (const target of cleanTargets) {
   const p = path.join(docsTargetDir, target);
