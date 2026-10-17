@@ -1,0 +1,18 @@
+# Obsidian specific ignores (keep config, ignore volatile workspace layout)
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/cache/
+.obsidian/**/data.json.bak
+.trash/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# Astro Starlight / Node dependencies
+site/node_modules/
+site/dist/
+site/.astro/
+node_modules/
+dist/
+.astro/

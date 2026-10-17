@@ -1,0 +1,26 @@
+{
+  "name": "Shop Knowledge Base & Darkroom Codespace",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:1-22-bookworm",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "markdown.preview.fontSize": 14,
+        "editor.wordWrap": "on",
+        "github.copilot.enable": {
+          "*": true,
+          "markdown": true,
+          "plaintext": true
+        }
+      },
+      "extensions": [
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "bierner.markdown-preview-github-styles",
+        "shd101wyy.markdown-preview-enhanced",
+        "astro-build.astro-vscode"
+      ]
+    }
+  },
+  "forwardPorts": [4321],
+  "postCreateCommand": "corepack enable && if [ -d site ]; then cd site && pnpm install; fi"
+}

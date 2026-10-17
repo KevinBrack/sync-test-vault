@@ -1,0 +1,38 @@
+---
+title: Apex Printworks — Operations Portal
+description: Live shop knowledge base powered by Obsidian, Git, and Astro Starlight.
+template: splash
+hero:
+  tagline: Production SOPs, darkroom exposure calibrations, and ink formulations. Synced directly from the shop floor via Obsidian & Git.
+  actions:
+    - text: Shop Overview
+      link: /overview/
+      icon: right-arrow
+      variant: primary
+    - text: Darkroom SOPs
+      link: /darkroom/sop-screen-coating-mesh-selection/
+      icon: document
+    - text: Pantone & Ink Formulas
+      link: /press-room/formulas-pantone-186c-discharge-mixing/
+      icon: open-book
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Why This Architecture Wins
+
+<CardGrid stagger>
+	<Card title="Obsidian Floor Velocity" icon="pencil">
+		Screen print managers and lead printers edit notes at lightning speed in Markdown with full offline support. No web forms or bloated intranet lag.
+	</Card>
+	<Card title="Git Automated Cloud Sync" icon="random">
+		Changes are automatically version-controlled and pushed silently every 5 minutes. No more duplicate corrupted copies (`Note (1).md`) from Dropbox or OneDrive.
+	</Card>
+	<Card title="Darkroom Codespaces & Copilot" icon="laptop">
+		Standing by the wash-out sink or press with an iPad or phone? Open the repository in GitHub Codespaces with Copilot Business for instant AI troubleshooting.
+	</Card>
+	<Card title="Instant Front-of-House Portal" icon="rocket">
+		Customer support, sales, and front desk access a blazing-fast, searchable web manual without needing Obsidian or technical training.
+	</Card>
+</CardGrid>

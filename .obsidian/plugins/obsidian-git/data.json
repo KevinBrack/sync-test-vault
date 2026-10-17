@@ -1,0 +1,16 @@
+{
+  "commitVaultOnSave": false,
+  "autoSaveInterval": 5,
+  "autoPushInterval": 5,
+  "autoPullInterval": 5,
+  "autoPullOnBoot": true,
+  "disablePush": false,
+  "pullBeforePush": true,
+  "disablePopups": false,
+  "listChangedFilesInStatusBar": true,
+  "updateSubmodules": false,
+  "syncMethod": "merge",
+  "customMessageOnAutoBackup": false,
+  "autoBackupAfterInit": false,
+  "commitMessage": "vault backup: {{date}} {{time}}"
+}
